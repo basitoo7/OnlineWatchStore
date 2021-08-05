@@ -1,0 +1,19 @@
+﻿
+@{
+    IEnumerable<GroceryStore.Models.Product> products = ViewBag.Products;
+}
+
+@foreach (GroceryStore.Models.Product product in products)
+{
+    <div class="divProduct">
+        <span>@product.Product_price</span>
+        <div>@product.product_name</div>
+    </div>
+}
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $(".agile_top_brands_grids").append(".divProduct");
+    });
+</script>*@
+

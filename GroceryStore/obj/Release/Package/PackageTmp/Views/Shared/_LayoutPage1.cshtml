@@ -1,0 +1,1070 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>S-Goldsmith</title>
+    <style>
+        .example {
+            position: relative;
+            padding: 0;
+            width: 289px;
+            display: block;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .content {
+            opacity: 0;
+            font-size: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+            background-color: rgba(200, 200, 200, 0.5);
+            width: 289px;
+            height: 289px;
+            -webkit-transition: all 400ms ease-out;
+            -moz-transition: all 400ms ease-out;
+            -o-transition: all 400ms ease-out;
+            -ms-transition: all 400ms ease-out;
+            transition: all 400ms ease-out;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .example .content:hover {
+            opacity: 3;
+        }
+
+        .example .content .text {
+            height: 0;
+            opacity: 3;
+            transition-delay: 0s;
+            transition-duration: 0.4s;
+        }
+
+        .example .content:hover .text {
+            opacity: 3;
+            transform: translateY(130px);
+            -webkit-transform: translateY(110px);
+        }
+        .navbar-collapse {
+            max-height: 379px;
+        }
+    </style>
+    <!-- for-mobile-apps -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Square Grocery Store Responsive website" />
+
+    <script src='@Url.Content("~/js/jquery-1.11.1.min.js")'></script>
+    @*<script src='@Url.Content("~/Scripts/jquery-1.12.4.min.js")'></script>
+        @*<script src='@Url.Content("~/js/jquery-3.2.1.min.js")'></script>*@
+
+
+
+    @Styles.Render("~/Content/css")
+    @*<link href='@Url.Content("~/Content/jquery-ui.min.css")' rel="stylesheet" />*@
+
+    <link href='@Url.Content("~/css/jquery-1.10.4ui.css")' rel="stylesheet" />
+
+    @*<link href='@Url.Content("~/css/jquery-ui-1.10.4.custom.css")' rel="stylesheet" />*@
+
+    @*<script src="https://code.jquery.com/jquery-1.10.2.js"></script>*@
+    @*<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>*@
+
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.js")'></script>
+
+    <script src='@Url.Content("~/js/jquery-1.10.4ui.js")'></script>
+    @*<script src='@Url.Content("~/js/jquery-ui.min.js")'></script>*@
+
+    <script src='@Url.Content("~/Scripts/Category.js")'></script>
+    @*<script src='@Url.Content("~/Scripts/CheckOut.js")'></script>*@
+
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    @*<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+        <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />*@
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    @*<script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>*@
+
+    @*<script src='@Url.Content("~/js/Category.js")'></script>*@
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+
+<body>
+    <!-- header -->
+    <div class="agileits_header">
+        <div class="w3l_offers">
+            @*<h4>we have your desire Products</h4>*@
+            @*<a href=>today's special offers !</a>*@
+        </div>
+        <div class="w3l_search">
+            @*<form action="#" method="post">*@
+            <form>
+                <input id="txtSearchbox" type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+                <input id="btnSearch" type="button" value=" ">
+            </form>
+        </div>
+        @*<div class="product_list_header">
+            <form action="#" method="post" class="last">
+                <fieldset>
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="display" value="1" />
+                    <input type="submit" name="submit" value="View your cart" class="button productListCart" />
+                </fieldset>
+            </form>
+        </div>*@
+
+        <div class="product_list_header">
+            @*<input type="text" name="submit" value="View your cart" class="button productListCart" />*@
+            @*<span class="productListCart">View your cart</span>*@
+            <a href="#" class="productListCart">View your cart</a>
+            <span class="counter" id="counter-notify"></span>
+        </div>
+
+        @*<div class="w3l_header_right">
+            <ul>
+                <li class="dropdown profile_details_drop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                    <div class="mega-dropdown-menu">
+                        <div class="w3ls_vegetables">
+                            <ul class="dropdown-menu drp-mnu">
+                                <li><a id="UserLogin" href="#">Login</a></li>
+                                <li><a href="/Signup">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>*@
+        @*<div class="w3l_header_right1">
+            <h2><a class="orderTracking" href="#">Track Your Order</a></h2>
+
+        </div>*@
+        <div class="w3l_header_right1">
+            <h2><a class="orderTracking" href="#">Track Your Order</a></h2>
+
+        </div>
+
+
+        @*<div class="w3l_offers">
+            <a class="blinking" href="/Offers/Index">Offers</a>
+        </div>*@
+
+
+
+        <div class="clearfix"> </div>
+    </div>
+    <!-- script-for sticky-nav -->
+    <script>
+        $(document).ready(function () {
+            var navoffeset = $(".agileits_header").offset().top;
+            $(window).scroll(function () {
+                var scrollpos = $(window).scrollTop();
+                if (scrollpos >= navoffeset) {
+                    $(".agileits_header").addClass("fixed");
+                } else {
+                    $(".agileits_header").removeClass("fixed");
+                }
+            });
+
+        });
+    </script>
+    <!-- //script-for sticky-nav -->
+    <div class="logo_products">
+        <div class="container">
+            <div class="w3ls_logo_products_left site_logo">
+                <a class="goToHomePage" href="#"><img src="~/uploads/12345.png" style="width:348px; height: 76px;" /></a>
+                @*<h1><a href="uploads/logo21.png"><span>Grocery</span> Store</a></h1>*@
+            </div>
+            <div class="w3ls_logo_products_left1">
+               <ul class="agileits_social_icons">
+                            <li><a href="https://www.facebook.com/SGOLD-SMITH-102433067959093/" style="background-color: #3b5998;" target="https://www.facebook.com/SGOLD-SMITH-102433067959093/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.youtube.com/user/ranasalman01" style="background-color:red;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=+923219999955" target="https://api.whatsapp.com/send?phone=+923219999955" style="background-color:forestgreen;"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                        </ul>
+            </div>
+            <div class="w3ls_logo_products_left1">
+                <ul class="phone_email">
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>(+92)3219999955</li>
+                    @*<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:http/www.gmail.com">store@grocery.com</a></li>*@
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:http/www.gmail.com">sgoldsmith@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //header -->
+    <!-- banner -->
+    <div class="banner">
+        <div class="w3l_banner_nav_left">
+            <nav class="navbar nav_bottom">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav nav_1">
+
+                        @Html.Partial("~/Views/Shared/_Category.cshtml")
+
+                        @*<li><a href="products.html">Branded Foods</a></li>
+                            <li><a href="household.html">Households</a></li>
+                            <li class="dropdown mega-dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>
+                                <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                                    <div class="w3ls_vegetables">
+                                        <ul>
+                                            <li><a href="vegetables.html">Vegetables</a></li>
+                                            <li><a href="vegetables.html">Fruits</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="kitchen.html">Kitchen</a></li>
+                            <li><a href="short-codes.html">Short Codes</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
+                                <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                                    <div class="w3ls_vegetables">
+                                        <ul>
+                                            <li><a href="drinks.html">Soft Drinks</a></li>
+                                            <li><a href="drinks.html">Juices</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="pet.html">Pet Food</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
+                                <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                                    <div class="w3ls_vegetables">
+                                        <ul>
+                                            <li><a href="frozen.html">Frozen Snacks</a></li>
+                                            <li><a href="frozen.html">Frozen Nonveg</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="bread.html">Bread & Bakery</a></li>*@
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+        </div>
+        <div class="w3l_banner_nav_right">
+            @*<h3 style="text-align: center;">Products Page</h3>*@
+            @*<div class="col-md-3 top_brand_left productItemTemplate" style="display:none">
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid">
+                            <div class="tag"><img src='@Url.Content("~/images/tag.png")' alt=" " class="img-responsive" /></div>
+                            <div class="agile_top_brand_left_grid1">
+                                <figure>
+                                    <div class="snipcart-item block">
+                                        <div class="snipcart-thumb">
+                                            <a href="single.html"><img title=" " alt=" " src='@Url.Content("~/images/1.png")' /></a>
+                                            <p>fortune sunflower oil</p>
+                                            <h4>$7.99 <span>$10.00</span></h4>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details">
+                                            <form action="checkout.html" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="business" value=" " />
+                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                    <input type="hidden" name="amount" value="7.99" />
+                                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                                    <input type="hidden" name="currency_code" value="USD" />
+                                                    <input type="hidden" name="return" value=" " />
+                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                </fieldset>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <section class="slider">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <div class="w3l_banner_nav_right_banner">
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner1">
+                                @*<h3>Make your <span>food</span> with Spicy.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner2">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner3">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner4">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        /li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner5">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner6">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner7">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner8">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner9">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner_nav_right_banner10">
+                                @*<h3>upto <i>50%</i> off.</h3>
+                                    <div class="more">
+                                        <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                    </div>*@
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+
+            <!-- flexSlider -->
+            @*<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+                <script defer src="js/jquery.flexslider.js"></script>*@
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        start: function (slider) {
+                            $('body').removeClass('loading');
+                        }
+                    });
+                });
+            </script>
+            <!-- //flexSlider -->
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <!-- top-brands -->
+    <div class="containerDivCart" style="display: none;">
+        <table class="yourordertable" style="width: 100%;" border="0" cellspacing="20" cellpadding="3">
+            <tr class="tableHeadRow">
+                <th scope="col" style="width:300px;">PRODUCT</th>
+                <th scope="col">PRODUCT PRICE</th>
+                <th scope="col">QUANTITY</th>
+                <th scope="col">TOTAL</th>
+            </tr>
+            <tbody class="tbodyRow">
+            </tbody>
+        </table>
+        <div class="divGrandTotal" style="float:right; margin:25px 55px 3px 20px">
+            <span>Grand Total(Rs): </span><span class="spnGrandTotal"> </span>
+        </div>
+
+        <div class="orderButtonBar" style="float:right; margin:70px -210px 0px 30px; padding: 15px; font-size:16px;color:#fff;line-height:20px;border:none;border-radius:3px;text-align:center;background:#1abc9c;height:50px;">
+            @*<a href="javascrip:void(0);" class="proceedToCheckOut">Proceed to Checkout</a>*@
+            <input type="button" class="proceedToCheckOut" value="Proceed to Checkout" />
+        </div>
+
+    </div>
+
+
+    <div class="top-brands">
+        <div class="container">
+            <h1 class="text-center" style="color:darkgoldenrod">Welcome to S-Goldsmith</h1>
+            <br />
+            <br />
+            <br />
+            <h3 style="">Watches</h3>
+            <div class="click">
+                <!-- banner -->
+                <div class="banner_bottom">
+                    <div class="wthree_banner_bottom_center_grid_sub1">
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B1.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">TISSOT</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B2.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">GUESS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B3.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">CITIZEN</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B4.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">MICHAEL KORS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B5.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">EMPORIO ARMANI</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B6.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">EDIFICE CAISO</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid content_img">
+                                <div class="example">
+                                    <img src="/uploads/B7.png" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">RADO</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B9.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">VC</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wthree_banner_bottom_left">
+                            <div class="wthree_banner_bottom_left_grid">
+                                <div class="example">
+                                    <img src="/uploads/B8.jpg" style="width: 289px; height: 289px; margin-top: 24px;" alt="tree" />
+                                    <div class="content">
+                                        <div class="text">PATEK PHILIPPE</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <!-- top-brands -->
+                <div class="top-brands">
+                    <div class="container">
+                        <h3>Jewelery</h3>
+                        <br />
+                        <div class="text-center"><img src="~/uploads/js1.jpg" style="height:454px; width:90%;" /></div>
+                        <br />
+                        <div class="text-center"><img src="~/uploads/js2.jpg" style="height:454px; width:90%;" /></div>
+                        <br />
+                        <div class="text-center"><img src="~/uploads/js3.jpg" style="height:454px; width:90%;" /></div>
+                        <br />
+                        <div class="text-center"><img src="~/uploads/js4.jpg" style="height:454px; width:90%;" /></div>
+                        <br />
+
+                    </div>
+                </div>
+                <!-- //top-brands -->
+                <!-- fresh-vegetables -->
+                <div class="fresh-vegetables">
+                    <div class="container">
+                        <h3>Top Products</h3>
+                        <div class="w3l_fresh_vegetables_grids">
+                            <div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
+                                <div class="w3l_fresh_vegetables_grid2">
+                                    <ul>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Rolex</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Rado</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">EDIFICE Casio</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">TISSOT</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">GUESS</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">CITIZEN</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">MICHAEL KORS</a></li>
+                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">EMPORIO ARMANI</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-9 w3l_fresh_vegetables_grid_right">
+                                <div class="col-md-4 w3l_fresh_vegetables_grid">
+                                    <div class="w3l_fresh_vegetables_grid1">
+                                        <img src="~/uploads/8.jpg" alt=" " class="img-responsive" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 w3l_fresh_vegetables_grid">
+                                    <div class="w3l_fresh_vegetables_grid1">
+                                        <div class="w3l_fresh_vegetables_grid1_rel">
+                                            <img src="~/uploads/7.jpg" alt=" " class="img-responsive" />
+                                        </div>
+                                    </div>
+                                    <div class="w3l_fresh_vegetables_grid1_bottom">
+                                        <img src="~/uploads/10.jpg" alt=" " class="img-responsive" />
+                                        <!-- <div class="w3l_fresh_vegetables_grid1_bottom_pos"> -->
+                                        <!-- <h5>Special Offers</h5> -->
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-4 w3l_fresh_vegetables_grid">
+                                    <div class="w3l_fresh_vegetables_grid1">
+                                        <img src="~/uploads/9.jpg" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="w3l_fresh_vegetables_grid1_bottom">
+                                        <img src="~/uploads/11.jpg" alt=" " class="img-responsive" />
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //fresh-vegetables -->
+                <!-- newsletter -->
+                <div class="newsletter">
+                    <div class="container">
+                        <div class="w3agile_newsletter_left">
+                            <h3>sign up for our newsletter</h3>
+                        </div>
+                        <div class="w3agile_newsletter_right">
+                            <form action="#" method="post">
+                                <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                                <input type="submit" value="subscribe now">
+                            </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<h3 class="productsPage"></h3>*@
+            <div id="divProducts" class="agile_top_brands_grids">
+                <div class="col-md-3 top_brand_left productItemTemplate" style="display:none">
+
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid">
+                            @*<div class="tag"><img src='@Url.Content("~/images/tag.png")' alt=" " class="img-responsive" /></div>*@
+                            <div class="agile_top_brand_left_grid1">
+
+                                <figure>
+                                    <div class="snipcart-item block">
+                                        <div class="snipcart-thumb">
+                                            <a><img class="productImage" title=" " alt=" " src='@Url.Content("~/images/1.png")' style="width:212px; height:370px;" /></a>
+                                            <p class="productName">Product Name</p>
+                                            @*<label>PKR:</label> <span class="productPrice" style="text-decoration:line-through"></span>*@
+                                            <label>PKR:</label> <span class="productPrice"></span>
+
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details">
+                                            <form>
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="business" value=" " />
+                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                    <input type="hidden" name="amount" value="7.99" />
+                                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                                    <input type="hidden" name="currency_code" value="USD" />
+                                                    <input type="hidden" name="return" value=" " />
+                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    @*<input type="submit" name="submit" value="Add to cart" class="button" />*@
+                                                    <input type="button" name="submit" value="Add to cart" class="button" />
+                                                </fieldset>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>information</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <li><a class="aboutUsPage" href="/AppInfo/AboutUs">About Us</a></li>
+                    @*<li><a href="about.html"></a></li>
+                        <li><a href="products.html">How To Use</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="short-codes.html">Short Codes</a></li>*@
+                </ul>
+            </div>
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>policy info</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <li><a class="FAQsPage" href="/AppInfo/NavigateToFAQs">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>what in stores</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <h3><li><a class="howToUsePage" href="/AppInfo/NavigateToHowToUse">How To Use</a></li></h3>
+                </ul>
+            </div>
+            <div class="col-md-3 w3_footer_grid">
+                <ul class="w3_footer_grid_list">
+                    <li><a class="infoPage" href="/AppInfo/NavigateToAppInfo">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+            <div class="agile_footer_grids">
+                <br />
+                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer" style="margin-left: 450px;">
+                    <div class="w3_footer_grid_bottom">
+                        <h5>connect with us</h5>
+                        <ul class="agileits_social_icons">
+                            <li><a href="https://www.facebook.com/SGOLD-SMITH-102433067959093/" style="background-color: #3b5998;" target="https://www.facebook.com/SGOLD-SMITH-102433067959093/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.youtube.com/user/ranasalman01" style="background-color:red;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=+923219999955" target="https://api.whatsapp.com/send?phone=+923219999955" style="background-color:forestgreen;"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="wthree_footer_copy">
+                <p>©  <span class="year"></span> S-Goldsmith. All rights reserved | Design & Developed by <a href="http://www.smartstation.com.pk/" target="http://www.smartstation.com.pk/">Smart Station</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <!-- //footer -->
+    <script>
+        $(document).ready(function () {
+            debugger
+            $(".year").text(new Date().getFullYear());
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            Categories.Structure.getProductsFoSearchBox();
+
+            $(document).on("click", "#btnSearch", function (e) {
+                $('click').hide();
+                if ($("#txtSearchbox").val().toLowerCase() == 'search a product...' || $.trim($("#txtSearchbox").val()) == '') {
+                    alert("Please select at least one product");
+                } else {
+                    var productName = $("#txtSearchbox").val();
+                    Categories.Structure.populateSearchBasedDiv(productName);
+
+                    //how to scroll to specific div using jquery
+                    $("html, body").animate({ scrollTop: $("#divProducts").offset().top }, 1800);
+                }
+
+
+            });
+
+
+            $(document).on("click", ".categoryList", function (e) {
+                //alert("category list is clicked");
+                $(".click").hide();
+                var CategoryId = parseInt($(this).attr("id"));
+                //$(".dynamicallyAddedDiv").empty();
+                $(".dynamicallyAddedDiv").remove();
+                Categories.Structure.getProductsByCategory(CategoryId)
+
+
+                //how to scroll to specific div using jquery
+                $("html, body").animate({ scrollTop: $("#divProducts").offset().top }, 1800);
+
+                ////area to manage cart items count
+                //var itemCount = 0;
+                //itemCount = $(".yourordertable tbody tr").length;
+                //var correctItemCount = itemCount - 1;
+                ////itemCount = $(".containerCartArea .cartbox").length;
+                //$(".counter").text(correctItemCount);
+
+                ////area to manage cart items count
+
+                ////$(".counter").text(0);
+
+            });
+
+            $(document).on("click", ".button", function (e) {
+                //alert("add to cart button is clicked");
+                //e.preventDefault();
+                var productDivToMoveToCart = $(this).closest(".dynamicallyAddedDiv");
+                Categories.Structure.populateMiniCartDialogItems(productDivToMoveToCart);
+
+
+                //area to manage cart items count
+                var itemCount = 0;
+                itemCount = $(".yourordertable tbody tr").length;
+                var correctItemCount = itemCount - 1;
+                //itemCount = $(".containerCartArea .cartbox").length;
+                $(".counter").text(correctItemCount);
+
+                //area to manage cart items count
+
+
+            });
+
+
+            $(document).on("keypress", 'table.yourordertable input.yourorderquantity', function (event) {
+                $(this).val($(this).val().replace(/[^\d].+/, ""));
+                //$(this).val($(this).val().replace(/[^1-9\.]/g, ''));
+                if ((event.which < 48 || event.which > 57)) {
+                    event.preventDefault();
+                }
+
+
+            });
+
+
+
+
+            $(document).on("click", ".yourordertable img.removeProduct", function () {
+                $(this).closest("tr").remove();
+                Categories.Structure.calculateOrderTotal();
+
+                //area to manage cart items count
+                var itemCount = 0;
+                itemCount = $(".yourordertable tbody tr").length;
+                var correctItemCount = itemCount - 1;
+                //itemCount = $(".containerCartArea .cartbox").length;
+                $(".counter").text(correctItemCount);
+
+                //area to manage cart items count
+
+            });
+
+
+            $(document).on("click", "#UserLogin", function (event) {
+                //alert("login button clicked");
+                event.preventDefault();
+
+                location.href = '@Url.Action("Index", "Login")';
+                //var url = "Login/Index";
+                //$(location).attr('href', url);
+            });
+
+
+            $(document).on("click", ".aboutUsPage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("AboutUs", "AppInfo")';
+            });
+
+            $(document).on("click", ".FAQsPage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("NavigateToFAQs", "AppInfo")';
+            });
+
+            $(document).on("click", ".howToUsePage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("NavigateToHowToUse", "AppInfo")';
+            });
+
+
+            $(document).on("click", ".orderTracking", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("Index", "OrderTracking")';
+            });
+
+
+            $(document).on("click", ".goToHomePage", function (e) {
+                location.href = '@Url.Action("Index", "Category")';
+            });
+
+
+            $(document).on("click", ".infoPage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("NavigateToAppInfo", "AppInfo")';
+            });
+
+
+            $(document).on("change", ".yourordertable input.yourorderquantity", function () {
+                var qtyValue = 0;
+                var productQtyText = $(this).val();
+                //var productQtyText = "";
+                //if ($(this).hasOwnProperty('oninput')) {
+                //    $(this).on('input', function (event) {
+                //        productQtyText = this.value.replace(/[^0-9\\]+/g, '');
+                //    });
+                //}
+                //else {
+                //    $(this).on('input', function (event) {
+                //        productQtyText = this.value = this.value.replace(/[^0-9\\]+/g, '');
+                //}
+
+                if (productQtyText == "" || productQtyText == "." || productQtyText.indexOf("..") != -1) {
+                    //Categories.Common.showNotificationDialog("Please enter the missed quantity.", Categories.Common.notificationTypes.WARNING, {
+                    //    buttons: {
+                    //        Yes: {
+                    //            text: "Ok",
+                    //            class: "dialog_yesBtn",
+                    //            click: function () {
+                    //                $(this).dialog('close');
+
+                    //            }
+                    //        }
+                    //    }
+                    //});
+                    $(this).css("border-color", "red");
+                    //$(".warning_dialogBox").css("z-index", 9999);
+                    alert("Please enter a valid quantity");
+                    return;
+                }
+
+                    //var parentTable = $(this).parent().parent().parent().parent();
+                    //var productDivData = $(productDiv).data("cartBoxDivData");
+
+                else {
+                    $(this).css("border-color", "");
+                    qtyValue += parseFloat(productQtyText);
+                    var unitPriceText = $(this).parent().prev("td").text();
+                    var unitPriceValue = parseFloat(unitPriceText);
+
+                    var productPrice = qtyValue * unitPriceValue;
+                    var productPriceRoundedValue = productPrice.toFixed(2);
+
+                    //$(productDiv).find("span.cartproductprice").text("Rs. " + productPriceRoundedValue).append(' <a class="cartproductRemove" href="javascript:void();">Remove</a>');
+                    $(this).parent().next("td.rowTotal").text(productPriceRoundedValue);
+
+                    Categories.Structure.calculateOrderTotal();
+
+                }
+
+
+            });
+
+
+            $(document).on("cut copy paste", ".yourordertable input.yourorderquantity", function (e) {
+                e.preventDefault();
+            });
+
+
+
+            $(document).on("click", ".productListCart", function () {
+                //alert("cart button is clicked");
+                //var buttonText = "close";
+                //$(".ui-dialog-titlebar-close").html("close");
+                var grandTotalText = $(".spnGrandTotal").text();
+                if (grandTotalText == " " || grandTotalText == "0.00" || $(".spnGrandTotal").length == 0) {
+                    $(".containerDivCart").hide();
+                    alert("Cart is empty, please Add to cart at least one product");
+                }
+                else {
+                    Categories.Structure.displayCartBox();
+                    //how to scroll to specific div using jquery
+                    $("html, body").animate({ scrollTop: $(".product_list_header").offset().top }, 400);
+                }
+
+            });
+
+
+            $(document).on("click", ".offerPage", function () {
+                //alert("offer page is clicked");
+                //Offers.Structure.getOfferProducts();
+                location.href = '@Url.Action("Index", "Offers")';
+            });
+
+
+            $(document).on("click", ".proceedToCheckOut", function () {
+                var orderTableTrs = [];
+                var cartProductList = [];
+                orderTableTrs = $(".yourordertable tbody.tbodyRow tr").toArray();
+                var isQtyMissed = false;
+                for (var i = 0; i < orderTableTrs.length; i++) {
+                    var qty = $(orderTableTrs[i]).find("input.txtQty").val();
+                    if (qty == "" || qty == "0" || qty == "00" || qty == "000" || isNaN(qty)) {
+                        isQtyMissed = true;
+
+                    }
+                    //else{
+                    //   qtyNotEmpty = qty;
+                    //}
+                    //return;
+                }
+
+                if ($(orderTableTrs).length == 0) {
+                    alert("cart is empty, first add at least one product to cart, than proceed to checkout")
+                    return;
+                }
+
+                else if (isQtyMissed) {
+                    alert("Please enter valid quantity in the missing quantity field before checkout");
+                    return;
+                }
+
+                else {
+                    for (var i = 0; i < orderTableTrs.length; i++) {
+                        $.grep(Categories.Structure.allProductListFromDB, function (item, index) {
+                            if (orderTableTrs[i].id == item.product_id) {
+                                var priceText = $(orderTableTrs[i]).find("td.rowTotal").text();
+                                var priceValue = parseFloat(priceText);
+                                item.Product_price = $(orderTableTrs[i]).find("td.unitPrice").text();
+                                item.quantity = parseFloat($(orderTableTrs[i]).find("input.txtQty").val());
+                                item["TotalPrice"] = $(orderTableTrs[i]).find("td.rowTotal").text();
+                                item.TotalPrice = item.TotalPrice;
+                                cartProductList.push(item);
+                            }
+                        });
+                    }
+                    Categories.Structure.Customer.CartProductList = cartProductList;
+                    localStorage.setItem("customer", JSON.stringify(Categories.Structure.Customer));
+                    var Customer = JSON.parse(localStorage.getItem("customer"));
+                    location.href = '@Url.Action("Index", "CheckOut")';
+                }
+            });
+
+        });
+    </script>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

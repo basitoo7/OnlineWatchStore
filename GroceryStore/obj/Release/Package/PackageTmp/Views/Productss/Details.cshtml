@@ -1,0 +1,57 @@
+﻿@model GroceryStore.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <title>Details</title>
+</head>
+<body background="/uploads/ProductsBackground.jpg" style="background-size:cover; width:auto; height:auto;">
+    <div style="width:100%; margin-top:8%">
+        <div class="container" style="width:29%;  margin:0 auto; padding:2% 0 2% 5%; background-color:rgba(0,0,0,0.25); border-radius:5px;">
+            <h4>Product Details</h4><br />
+            <style>
+                .TBL tr td {
+                    padding: 5px;
+                }
+            </style>
+            <table class="TBL">
+                <tr>
+                    <td><b>@Html.DisplayNameFor(model => model.image_path)</b></td>
+                    <td>@Html.DisplayFor(model => model.image_path)</td>
+                </tr>
+                <tr>
+                    <td><b>@Html.DisplayNameFor(model => model.product_name)</b></td>
+                    <td>@Html.DisplayFor(model => model.product_name)</td>
+                </tr>
+                <tr>
+                    <td><b>@Html.DisplayNameFor(model => model.Product_price)</td>
+                    <td>@Html.DisplayFor(model => model.Product_price)</td>
+                </tr>
+                <tr>
+                    <td><b>@Html.DisplayNameFor(model => model.product_details)</b></td>
+                    <td>@Html.DisplayFor(model => model.product_details)</td>
+                </tr>
+                <tr>
+                    <td><b>@Html.DisplayNameFor(model => model.Catagory.name)</b></td>
+                    <td>@Html.DisplayFor(model => model.Catagory.name)</td>
+                </tr>
+            </table>
+            <br /><div class="btn btn-default">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.product_id })
+
+            </div>
+            <div class="btn btn-default">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+</body>
+</html>

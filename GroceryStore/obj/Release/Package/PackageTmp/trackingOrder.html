@@ -1,0 +1,110 @@
+﻿<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<link href="css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="row shop-tracking-status">
+
+    <div class="col-md-12">
+        <div class="well">
+
+
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputOrderTrackingID" class="col-sm-2 control-label">Order id</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputOrderTrackingID" value="" placeholder="# put your order id here">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" id="shopGetOrderStatusID" class="btn btn-success">Get status</button>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Your order status:</h4>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="prefix">Date created:</span>
+                    <span class="label label-success">12.12.2013</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Last update:</span>
+                    <span class="label label-success">12.15.2013</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Comment:</span>
+                    <span class="label label-success">customer's comment goes here</span>
+                </li>
+                <li class="list-group-item">You can find out latest status of your order with the following link:</li>
+                <li class="list-group-item"><a href="//tracking/link/goes/here">//tracking/link/goes/here</a></li>
+            </ul>
+
+            <div class="order-status" style="margin-top:150px; position: relative; margin-bottom:150px;">
+                <div class="order-status-timeline" style="height:12px;border:1px solid #aaa; border-radius: 7px;background:#eee; box-shadow:0px 0px 5px 0px #c2c2c2 inset;">
+                    <!-- class names: c0 c1 c2 c3 and c4 -->
+                    <div class="order-status-timeline-completion c3" style="width: 70%; height:8px; margin:1px; border-radius:7px; background:#cf7400"></div>
+                </div>
+                <div class="image-order-status image-order-status-new active img-circle" style="box-shadow: 0px 0px 10px 0px;color: #cf7400; margin-left:0px; border:1px solid #ddd; padding:7px;background-color:#fdfdfd; position:absolute;margin-top:-35px;">
+                    <span class="status" style="color:#cf7400; text-shadow:0px 0px 1px #777; position:absolute;-webkit-transform:rotate(-30deg); width:180px;top:-70px;left:37px;"> <-- accepted</span>
+                    <div class="icon" style="height:40px;width:40px;background-size:contain; background-image: url(/uploads/AcceptedActiveImage.png)"></div>
+                </div>
+
+                <div class="image-order-status image-order-status active img-circle" style="box-shadow: 0px 0px 10px 0px;color: #cf7400; margin-left:22%; border:1px solid #ddd; padding:7px;background-color:#fdfdfd; position:absolute;margin-top:-35px;">
+                    <span class="status" style="color:#cf7400; text-shadow:0px 0px 1px #777; position:absolute;-webkit-transform:rotate(-30deg); width:180px;top:-70px;left:37px;"> <-- in progress</span>
+                    <div class="icon" style="height:40px;width:40px;background-size:contain; background-image: url(/uploads/ActiveImageProgress.png)"></div>
+                </div>
+
+
+                <div class="image-order-status image-order-status active img-circle" style="box-shadow: 0px 0px 10px 0px;color: #cf7400; margin-left:45%; border:1px solid #ddd; padding:7px;background-color:#fdfdfd; position:absolute;margin-top:-35px;">
+                    <span class="status" style="color:#cf7400; text-shadow:0px 0px 1px #777; position:absolute;-webkit-transform:rotate(-30deg); width:180px;top:-70px;left:37px;"> <-- shipped</span>
+                    <div class="icon" style="height:40px;width:40px;background-size:contain; background-image: url(/uploads/shipactive.png)"></div>
+                </div>
+
+
+                <div class="image-order-status image-order-status active img-circle" style="box-shadow: 0px 0px 10px 0px;color: #cf7400; margin-left:70%; border:1px solid #ddd; padding:7px;background-color:#fdfdfd; position:absolute;margin-top:-35px;">
+                    <span class="status" style="color:#cf7400; text-shadow:0px 0px 1px #777; position:absolute;-webkit-transform:rotate(-30deg); width:180px;top:48px;left:-77px;">Delivered --></span>
+                    <div class="icon" style="height:40px;width:40px;background-size:contain; background-image: url(/uploads/deliveredactive.png)"></div>
+                </div>
+
+                <div class="image-order-status image-order-status active img-circle" style="box-shadow: 0px 0px 10px 0px;color: #cf7400; margin-left:96%; border:1px solid #ddd; padding:7px;background-color:#fdfdfd; position:absolute;margin-top:-35px;">
+                    <span class="status" style="color:#cf7400; text-shadow:0px 0px 1px #777; position:absolute;-webkit-transform:rotate(-30deg); width:180px;top:57px;left:-90px;">Completed --></span>
+                    <div class="icon" style="height:40px;width:40px;background-size:contain; background-image: url(/uploads/competedactive.png)"></div>
+                </div>
+
+
+            </div>
+
+            <!--<div class="order-status">
+                <div class="order-status-timeline">
+
+                    <div class="order-status-timeline-completion c3"></div>
+                </div>
+                <div class="image-order-status image-order-status-new active img-circle">
+                    <span class="status">Accepted</span>
+                    <div class="icon"></div>
+                </div>
+                <div class="image-order-status image-order-status-active active img-circle">
+                    <span class="status">In progress</span>
+                    <div class="icon"></div>
+                </div>
+                <div class="image-order-status image-order-status-intransit active img-circle">
+                    <span class="status">Shipped</span>
+                    <div class="icon"></div>
+                </div>
+                <div class="image-order-status image-order-status-delivered active img-circle">
+                    <span class="status">Delivered</span>
+                    <div class="icon"></div>
+                </div>
+                <div class="image-order-status image-order-status-completed active img-circle">
+                    <span class="status">Completed</span>
+                    <div class="icon"></div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>

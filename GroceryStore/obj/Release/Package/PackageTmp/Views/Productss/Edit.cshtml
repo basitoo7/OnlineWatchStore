@@ -1,0 +1,87 @@
+﻿@model GroceryStore.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <title>Edit</title>
+</head>
+<body background="/uploads/ProductsBackground.jpg" style="background-size:cover; width:auto; height:auto;">
+    <div style="width:100%; margin-top:4%">
+        <div class="container" style="width:29%;  margin:0 auto; padding:2% 0 2% 5%; background-color:rgba(0,0,0,0.25); border-radius:5px;">
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/jqueryval")
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4 style="text-align:center;">Product</h4><br />
+
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.product_id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.catagory_id, "catagory_id", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("catagory_id", String.Empty)
+                            @Html.ValidationMessageFor(model => model.catagory_id)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.image_path, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.image_path)
+                            @Html.ValidationMessageFor(model => model.image_path)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.product_name)
+                            @Html.ValidationMessageFor(model => model.product_name)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Product_price, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Product_price)
+                            @Html.ValidationMessageFor(model => model.Product_price)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.product_details, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.product_details)
+                            @Html.ValidationMessageFor(model => model.product_details)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-md-8">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                            <div class="btn btn-default">
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<GroceryStore.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .btn-primary a {
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button class="btn btn-primary" style="margin:10px;">
+        @Html.ActionLink("Create New", "Create")
+    </button>
+    <a href="/Catagories" class="btn btn-primary" style="margin-left: 50px; font-weight: bolder; ">Go to Categories</a>
+    <table class="table table-striped">
+        <thead class="bg-primary">
+            <tr>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.image_path)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.product_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product_price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.product_details)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Catagory.name)
+                </th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.image_path)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.product_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product_price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.product_details)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Catagory.name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.product_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.product_id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.product_id })
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+</body>
+</html>

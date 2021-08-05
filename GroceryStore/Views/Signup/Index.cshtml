@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+}
+
+
+<script src='@Url.Content("~/js/jquery-3.2.1.min.js")'></script>
+
+
+
+@Styles.Render("~/Content/css")
+
+<link href='@Url.Content("//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css")' rel="stylesheet" id="bootstrap-css" />
+
+
+<script src='@Url.Content("//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js")'></script>
+@*<script src='@Url.Content("//code.jquery.com/jquery-1.11.1.min.js")'></script>*@
+<script src='@Url.Content("~/Scripts/SignUp.js")'></script>
+<div style="width:100%; background-image:url(/uploads/signupBackground.jpg); background-position:center; background-size:cover; height:100vh; padding:10% 0;">
+    <div style="width:29%;  margin:0 auto; padding:2% 0 2% 5%; background-color:rgba(0,0,0,0.60); border-radius:5px;">
+        <h1 style="color:white;">Sign Up</h1>
+        <form>
+            <h4 style="color:white;">Full Name</h4>
+            <input type="text" name="fullName" id="txtFullName" maxlength="20" class="span3">
+            <h4 style="color:white;">Email Address</h4>
+            <input type="email" name="email" id="txtEmail" maxlength="30" class="span3">
+            <h4 style="color:white;">Password</h4>
+            <input type="password" name="password" id="txtPassword" maxlength="15" class="span3">
+            <h4 style="color:white;">Phone</h4>
+            <input type="text" name="phone" id="txtPhone" maxlength="11" onkeypress="Validate(event);" class="span3">
+
+            @*<label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label>*@
+            <br />
+            <center>
+                <input type="button" id="btnSubmit" value="Sign up" class="btn btn-primary">
+                @*<input type="button" id=btnSubmit class="btn btn-primary pull-right" onclick="location.href='/Login/Index';" value="Sign up" />*@
+                <input type="button" class="btn btn-primary" onclick="location.href='/Login/Index';" value="Go to Login" />
+            </center>
+
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //for only numeric and special characters     validation for phone
+    function Validate(event) {
+        //var regex = new RegExp("^[0-9+]+$");
+        var regex = new RegExp("^[0-9]+$");
+        var key = String.fromCharCode(event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        //only lower uppercase alphabets, space is also allowed
+        $("#txtFullName").on("keyup blur", function () {
+            $(this).val(function (i, val) {
+                return val.replace(/[^a-z\s]/gi, '');
+            });
+        });
+
+
+        $(document).on("click", "#btnSubmit", function () {
+            var fullName = $.trim($("#txtFullName").val());
+            var email = $.trim($("#txtEmail").val());
+            var password = $.trim($("#txtPassword").val());
+            var phone = $.trim($("#txtPhone").val());
+            if (fullName == "" || fullName.length == 0) {
+                alert("Full Name is required");
+                $("#txtFullName").focus();
+            }
+            else if (email == "" || email.length == 0) {
+                alert("Email is required");
+                $("#txtEmail").focus();
+            }
+            else if (password == "" || password.length < 8 || password.length == 0) {
+                alert("Password is required, you must Enter 8 characters Password");
+                $("#txtPassword").focus();
+            }
+            else if (phone == "" || phone == "00000000000" || phone.length < 11 ||  phone.length == 0) {
+                alert("Phone is not valid, please enter valid phone");
+                $("#txtPhone").focus();
+            }
+            else {
+                GS.SignUp.saveNewUser(fullName, email, password, phone);
+                GS.SignUp.resetFields();
+                alert("Registration Completed successfully");
+                location.href = '@Url.Action("Index", "Category")';
+            }
+            //GS.SignUp.saveNewUser(fullName, email, password, phone);
+        });
+
+    });
+</script>
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

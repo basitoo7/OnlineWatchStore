@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GroceryStore.Models.Catagory>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        .btn-primary a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="table table-striped">
+    <button class="btn btn-primary" style="margin:10px;">
+        @Html.ActionLink("Create New", "Create")
+    </button>
+    <a href="/LastestOrder/Index#" class="btn btn-primary" style="margin-left: 50px; font-weight: bolder; ">Go to LastestOrders</a>
+    <a href="/Productss/Index" class="btn btn-primary" style="margin-left: 150px; font-weight: bolder; ">Go to Products</a>
+    <br />
+    <table class="table table-striped" border="1">
+        <thead class="bg-primary">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.id }) |*@
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+
+
+    </table>
+</body>
+</html>

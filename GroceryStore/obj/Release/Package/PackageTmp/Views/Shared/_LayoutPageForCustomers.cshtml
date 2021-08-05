@@ -1,0 +1,708 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>S-Goldsmith</title>
+    <!-- for-mobile-apps -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Square Grocery Store Responsive website" />
+
+    @*<script src='@Url.Content("~/js/jquery-1.11.1.min.js")'></script>*@
+    <script src='@Url.Content("~/Scripts/jquery-1.12.4.min.js")'></script>
+    @*<script src='@Url.Content("~/js/jquery-3.2.1.min.js")'></script>*@
+
+    @*<link href='@Url.Content("~/css/style.css")' rel="stylesheet" />*@
+
+    @Styles.Render("~/Content/css")
+
+    @*<link href='@Url.Content("~/Content/jquery-ui.min.css")' rel="stylesheet" />*@
+    @*<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />*@
+
+    <link href='@Url.Content("~/css/jquery-1.10.4ui.css")' rel="stylesheet" />
+
+    @*<script src="https://code.jquery.com/jquery-1.10.2.js"></script>*@
+    @*<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>*@
+    @*<script src='@Url.Content("~/Scripts/jquery-1.10.2.js")'></script>*@
+    <script src='@Url.Content("~/js/jquery-1.10.4ui.js")'></script>
+    @*<script src='@Url.Content("~/js/jquery-ui.min.js")'></script>*@
+
+    <script src='@Url.Content("~/Scripts/Category.js")'></script>
+    <script src='@Url.Content("~/Scripts/CheckOut.js")'></script>
+    <script src='@Url.Content("~/Scripts/CustomerOrder.js")'></script>
+
+
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    @*<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+        <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />*@
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    @*<script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>*@
+
+    @*<script src='@Url.Content("~/js/Category.js")'></script>*@
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+
+<body>
+    <!-- header -->
+    <div class="agileits_header">
+        <div class="w3l_offers">
+            @*<a href="products.html">Today's special Offers !</a>*@
+        </div>
+        @*<div class="w3l_search">
+            <form action="#" method="post">
+                <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+                <input id="btnSearch" type="button" value=" ">
+            </form>
+        </div>*@
+
+
+        <div class="product_list_header">
+
+            <a href="#" class="productListCart">View your cart</a>
+            <span class="counter" id="counter-notify"></span>
+        </div>
+
+        @*<div class="w3l_header_right">
+            <ul>
+                <li class="dropdown profile_details_drop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                    <div class="mega-dropdown-menu">
+                        <div class="w3ls_vegetables">
+                            <ul class="dropdown-menu drp-mnu">
+                                <li><a href="/Login">Login</a></li>
+                                <li><a href="/Signup">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>*@
+        <div class="w3l_header_right1">
+            <h2><a href="/AppInfo/AboutUs">About us</a></h2>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!-- script-for sticky-nav -->
+    <script>
+        $(document).ready(function () {
+            var navoffeset = $(".agileits_header").offset().top;
+            $(window).scroll(function () {
+                var scrollpos = $(window).scrollTop();
+                if (scrollpos >= navoffeset) {
+                    $(".agileits_header").addClass("fixed");
+                } else {
+                    $(".agileits_header").removeClass("fixed");
+                }
+            });
+
+        });
+    </script>
+    <!-- //script-for sticky-nav -->
+    <div class="logo_products">
+        <div class="container">
+            <div class="w3ls_logo_products_left">
+                <a href="/Category/Index"><img src="~/uploads/12345.png" style="width:260px; height: 76px;" /></a>
+            </div>
+            <div class="w3ls_logo_products_left1">
+                <ul class="special_items">
+                    <li><a class="aboutUsPage" href="/AppInfo/AboutUs">About Us</a><i>/</i></li>
+                    <li><a class="FAQsPage" href="/AppInfo/NavigateToFAQs">FAQs</a><i>/</i></li>
+                    <li><a class="howToUsePage" href="/AppInfo/NavigateToHowToUse">How To Use</a></li>
+                    @*<li><a href="services.html">Services</a></li>*@
+                </ul>
+            </div>
+            <div class="w3ls_logo_products_left1">
+                <ul class="phone_email">
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>(+92)3219999955</li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">sgoldsmith@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+    <!-- products-breadcrumb -->
+    <div class="products-breadcrumb">
+        <div class="container">
+            <ul>
+                @*<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>*@
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="#" class="homePage">Home</a><span>|</span></li>
+                @*<li>Offers on Products</li>*@
+                @*<li>Order Tracking</li>*@
+            </ul>
+        </div>
+    </div>
+    <!-- //products-breadcrumb -->
+    <!-- banner -->
+    <br /><br />
+    
+    @RenderBody()
+
+    <!-- //banner -->
+    <br /><br />
+
+
+
+
+
+
+
+    <!-- newsletter -->
+    @*<div class="newsletter">
+            <div class="container">
+                <div class="w3agile_newsletter_left">
+                    <h3>sign up for our newsletter</h3>
+                </div>
+                <div class="w3agile_newsletter_right">
+                    <form action="#" method="post">
+                        <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                        <input type="submit" value="subscribe now">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>*@
+    <!-- //newsletter -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>information</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <li><a class="aboutUsPage" href="/AppInfo/AboutUs">About Us</a></li>
+                    @*<li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Best Deals</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="short-codes.html">Short Codes</a></li>*@
+                </ul>
+            </div>
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>policy info</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <li><a class="FAQsPage" href="/AppInfo/NavigateToFAQs">FAQs</a></li>
+                    @*<li><a href="privacy.html">privacy policy</a></li>
+                        <li><a href="privacy.html">terms of use</a></li>*@
+                </ul>
+            </div>
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>what in stores</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <li><a class="howToUsePage" href="/AppInfo/NavigateToHowToUse">How To Use</a></li>
+                    @*<li><a href="frozen.html">Frozen Snacks</a></li>
+                        <li><a href="kitchen.html">Kitchen</a></li>
+                        <li><a href="products.html">Branded Foods</a></li>
+                        <li><a href="household.html">Households</a></li>*@
+                </ul>
+            </div>
+            <div class="col-md-3 w3_footer_grid">
+                @*<h3>twitter posts</h3>*@
+                <ul class="w3_footer_grid_list">
+                    <li><a class="infoPage" href="/AppInfo/NavigateToAppInfo">Info</a></li>
+                    @*<li>
+                            <label class="fa fa-twitter" aria-hidden="true"></label><i>01 day ago</i><span>
+                                Non numquam <a href="#">http://sd.ds/13jklf#</a>
+                                eius modi tempora incidunt ut labore et
+                                <a href="#">http://sd.ds/1389kjklf#</a>quo nulla.
+                            </span>
+                        </li>
+                        <li>
+                            <label class="fa fa-twitter" aria-hidden="true"></label><i>02 day ago</i><span>
+                                Con numquam <a href="#">http://fd.uf/56hfg#</a>
+                                eius modi tempora incidunt ut labore et
+                                <a href="#">http://fd.uf/56hfg#</a>quo nulla.
+                            </span>
+                        </li>*@
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+            <div class="agile_footer_grids">
+                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                    @*<div class="w3_footer_grid_bottom">
+                            <h4>100% secure payments</h4>
+                            <img src='@Url.Content("~/images/card.png")' alt=" " class="img-responsive" />
+                        </div>*@
+                </div>
+                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer" style="margin-left: 150px">
+                    <div class="w3_footer_grid_bottom">
+                        <h5>connect with us</h5>
+                        <ul class="agileits_social_icons">
+                            <li><a href="https://www.facebook.com/SGOLD-SMITH-102433067959093/" class="facebook" target="https://www.facebook.com/SGOLD-SMITH-102433067959093/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="wthree_footer_copy">
+                <p>©  <span class="year"></span> S-Goldsmith. All rights reserved | Design & Developed by <a href="http://www.smartstation.com.pk/">Smart Station</a></p>
+            </div>
+        </div>
+
+        @*NEW html addedd*@
+
+        <div class="containerDivCart" style="display: none;">
+            <table class="yourordertable" style="width: 100%;" border="0" cellspacing="20" cellpadding="3">
+                <tr class="tableHeadRow">
+                    <th scope="col" style="width:300px;">PRODUCT</th>
+                    <th scope="col">PRODUCT PRICE</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">TOTAL</th>
+                </tr>
+                <tbody class="tbodyRow">
+                    @*<tr class ="trGrandTotal">
+                        <td colspan="4">
+                            <span style="float: left">Grand Total: </span><input style="float:right; border: none;" type="text" readonly="readonly" />
+                        </td>
+                    </tr>*@
+                </tbody>
+            </table>
+            <div class="divGrandTotal" style="float:right; margin:25px 55px 3px 20px">
+                <span>Grand Total(Rs): </span><span class="spnGrandTotal"> </span>
+            </div>
+
+            <div class="orderButtonBar" style="float:right; margin:70px -210px 0px 30px; padding: 15px; font-size:16px;color:#fff;line-height:20px;border:none;border-radius:3px;text-align:center;background:#1abc9c;height:50px;">
+                @*<a href="javascrip:void(0);" class="proceedToCheckOut">Proceed to Checkout</a>*@
+                <input type="button" class="proceedToCheckOut"  style="color:black;" value="Proceed to Checkout" />
+            </div>
+
+        </div>
+
+    </div>
+
+
+    @*<div>
+        @RenderBody()
+    </div>*@
+
+
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    @*<script src="js/bootstrap.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+            Categories.Structure.getProductsFoSearchBox();
+
+            $(document).on("click", "#btnSearch", function (e) {
+                //alert("search button is clicked");
+                if ($("#txtSearchbox").val().toLowerCase() == 'search a product...' || $.trim($("#txtSearchbox").val()) == '') {
+                    alert("Please select at least one product");
+                } else {
+                    var productName = $("#txtSearchbox").val();
+                    Categories.Structure.populateSearchBasedDiv(productName);
+
+                    //how to scroll to specific div using jquery
+                    $("html, body").animate({ scrollTop: $("#divProducts").offset().top }, 1800);
+                }
+
+
+            });
+
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    @*<script src="js/minicart.js"></script>*@
+    <script>
+        paypal.minicart.render();
+
+        paypal.minicart.cart.on('checkout', function (evt) {
+            var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+            // Count the number of each item in the cart
+            for (i = 0; i < len; i++) {
+                total += items[i].get('quantity');
+            }
+
+            if (total < 3) {
+                alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                evt.preventDefault();
+            }
+        });
+
+    </script>
+
+
+    <script type="text/javascript">
+        //for only numeric and special characters     validation for phone
+        function Validate(event) {
+            var regex = new RegExp("^[0-9+]+$");
+            var key = String.fromCharCode(event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
+
+
+    @*<script src='@Url.Content("~/Scripts/Category.js")'></script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".year").text(new Date().getFullYear());
+
+
+            var Customer = JSON.parse(localStorage.getItem("customer"));
+            $("p.name").text(Customer.Name);
+            $("p.phone").text(Customer.Phone);
+            $("p.email").text(Customer.Email);
+            $("p.orderTotal small").text(Customer.OrderTotal);
+            $("p.orderTrackingNumber").text(Customer.TrackingNumber);
+            $("p.orderStatus").text(Customer.OrderStatus);
+            CustomerOrder.Structure.getorderdetailbycustomer(Customer.CustomerInfoId);
+
+
+
+            $(document).on("click", ".categoryList", function (e) {
+                //alert("category list is clicked");
+                var CategoryId = parseInt($(this).attr("id"));
+                $(".dynamicallyAddedDiv").empty();
+                Categories.Structure.getProductsByCategory(CategoryId)
+
+            });
+
+
+            $(document).on("click", ".homePage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("Index", "Category")';
+            });
+
+            $(document).on("click", ".aboutUsPage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("AboutUs", "AppInfo")';
+            });
+
+            $(document).on("click", ".FAQsPage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("NavigateToFAQs", "AppInfo")';
+            });
+
+            $(document).on("click", ".howToUsePage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("NavigateToHowToUse", "AppInfo")';
+            });
+
+            $(document).on("click", ".infoPage", function (e) {
+                //alert("home page anchor tag is clicked");
+                location.href = '@Url.Action("NavigateToAppInfo", "AppInfo")';
+            });
+
+            //$(".categoryList").on("click", function () {
+            //    alert("category list is clicked");
+            //});
+
+            $(document).on("click", ".button", function (e) {
+                //alert("add to cart button is clicked");
+                e.preventDefault();
+                var productDivToMoveToCart = $(this).closest(".dynamicallyAddedDiv");
+                Categories.Structure.populateMiniCartDialogItems(productDivToMoveToCart);
+
+                //area to manage cart items count
+                var itemCount = 0;
+                itemCount = $(".yourordertable tbody tr").length;
+                var correctItemCount = itemCount - 1;
+                //itemCount = $(".containerCartArea .cartbox").length;
+                $(".counter").text(correctItemCount);
+
+                //area to manage cart items count
+
+            });
+
+
+            //$(".ui-dialog-titlebar-close").
+            //$(".ui-dialog-titlebar-close").append('<img src="/images/closebtn.png" />');
+
+
+            //for cart items       quantity  text box
+            //This will let you enter positive numbers only and the decimal numbers with 2 digits precision
+            $(document).on("keypress", 'table.yourordertable input.yourorderquantity', function (event) {
+                //alert("key is pressed");
+                if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 49 || event.which > 57)) {
+                    if (event.keyCode !== 8 && event.keyCode !== 46) { //exception
+                        event.preventDefault();
+                    }
+                }
+                if (($(this).val().indexOf('.') != -1) && ($(this).val().substring($(this).val().indexOf('.'), $(this).val().indexOf('.').length).length > 2)) {
+                    if (event.keyCode !== 8 && event.keyCode !== 46) { //exception
+                        event.preventDefault();
+                    }
+                }
+            });
+
+
+            $(document).on("click", ".check_out", function (e) {
+                e.preventDefault();
+                //alert("check out button is clicked");
+                CheckOut.Structure.saveCustomerOrder();
+            });
+
+
+            $(document).on("click", ".yourordertable img.removeProduct", function () {
+                $(this).closest("tr").remove();
+                Categories.Structure.calculateOrderTotal();
+
+            });
+
+
+            $(document).on("change", ".yourordertable input.yourorderquantity", function () {
+                var qtyValue = 0;
+                var productQtyText = $(this).val();
+                if (productQtyText == "" || productQtyText == "." || productQtyText.indexOf("..") != -1) {
+                    //Categories.Common.showNotificationDialog("Please enter the missed quantity.", Categories.Common.notificationTypes.WARNING, {
+                    //    buttons: {
+                    //        Yes: {
+                    //            text: "Ok",
+                    //            class: "dialog_yesBtn",
+                    //            click: function () {
+                    //                $(this).dialog('close');
+
+                    //            }
+                    //        }
+                    //    }
+                    //});
+                    $(this).css("border-color", "red");
+                    //$(".warning_dialogBox").css("z-index", 9999);
+                    return;
+                }
+
+                    //var parentTable = $(this).parent().parent().parent().parent();
+                    //var productDivData = $(productDiv).data("cartBoxDivData");
+
+                else {
+                    $(this).css("border-color", "");
+                    qtyValue += parseFloat(productQtyText);
+                    var unitPriceText = $(this).parent().prev("td").text();
+                    var unitPriceValue = parseFloat(unitPriceText);
+
+                    var productPrice = qtyValue * unitPriceValue;
+                    var productPriceRoundedValue = productPrice.toFixed(2);
+
+                    //$(productDiv).find("span.cartproductprice").text("Rs. " + productPriceRoundedValue).append(' <a class="cartproductRemove" href="javascript:void();">Remove</a>');
+                    $(this).parent().next("td.rowTotal").text(productPriceRoundedValue);
+
+                    Categories.Structure.calculateOrderTotal();
+
+                }
+
+
+            });
+
+            $(document).on("click", ".productListCart", function () {
+                //alert("cart button is clicked");
+                var grandTotalText = $(".spnGrandTotal").text();
+                if (grandTotalText == " " || grandTotalText == "0.00" || $(".spnGrandTotal").length == 0) {
+                    $(".containerDivCart").hide();
+                    alert("Cart is empty, please Add to cart at least one product");
+                }
+                else {
+                    Categories.Structure.displayCartBox();
+                }
+
+            });
+
+
+            $(document).on("click", ".proceedToCheckOut", function () {
+                var orderTableTrs = [];
+                var cartProductList = [];
+                orderTableTrs = $(".yourordertable tbody.tbodyRow tr").toArray();
+                var isQtyMissed = false;
+                for (var i = 0; i < orderTableTrs.length; i++) {
+                    var qty = $(orderTableTrs[i]).find("input.txtQty").val();
+                    if (qty == "" || qty == "0" || qty == "00" || qty == "000" || isNaN(qty)) {
+                        isQtyMissed = true;
+
+                    }
+                    //else{
+                    //   qtyNotEmpty = qty;
+                    //}
+                    //return;
+                }
+
+                if ($(orderTableTrs).length == 0) {
+                    alert("cart is empty, first add at least one product to cart, than proceed to checkout")
+                    return;
+                }
+
+                else if (isQtyMissed) {
+                    alert("Please enter valid quantity in the missing quantity field before checkout");
+                    return;
+                }
+
+                else {
+                    for (var i = 0; i < orderTableTrs.length; i++) {
+                        $.grep(Categories.Structure.allProductListFromDB, function (item, index) {
+                            if (orderTableTrs[i].id == item.product_id) {
+                                var priceText = $(orderTableTrs[i]).find("td.rowTotal").text();
+                                var priceValue = parseFloat(priceText);
+                                item.Product_price = $(orderTableTrs[i]).find("td.unitPrice").text();
+                                item.quantity = parseFloat($(orderTableTrs[i]).find("input.txtQty").val());
+                                item["TotalPrice"] = $(orderTableTrs[i]).find("td.rowTotal").text();
+                                item.TotalPrice = item.TotalPrice;
+                                cartProductList.push(item);
+                            }
+                        });
+                    }
+                    Categories.Structure.Customer.CartProductList = cartProductList;
+                    localStorage.setItem("customer", JSON.stringify(Categories.Structure.Customer));
+                    var Customer = JSON.parse(localStorage.getItem("customer"));
+                    location.href = '@Url.Action("Index", "CheckOut")';
+                }
+            });
+
+
+            $(document).on("click", "table.timetable_sub div.removeProduct", function () {
+                $(this).closest("tr").remove();
+                //Categories.Structure.calculateOrderTotal();
+                CheckOut.Structure.calculateCustomerOrderTotal();
+            });
+
+
+            $(document).on("change", "table.timetable_sub input.tdQuantity", function () {
+                var qtyValue = 0;
+                var productQtyText = $(this).val();
+                if (productQtyText == "" || productQtyText == "." || productQtyText.indexOf("..") != -1) {
+                    //Categories.Common.showNotificationDialog("Please enter the missed quantity.", Categories.Common.notificationTypes.WARNING, {
+                    //    buttons: {
+                    //        Yes: {
+                    //            text: "Ok",
+                    //            class: "dialog_yesBtn",
+                    //            click: function () {
+                    //                $(this).dialog('close');
+
+                    //            }
+                    //        }
+                    //    }
+                    //});
+                    $(this).css("border-color", "red");
+                    //$(".warning_dialogBox").css("z-index", 9999);
+                    return;
+                }
+
+                    //var parentTable = $(this).parent().parent().parent().parent();
+                    //var productDivData = $(productDiv).data("cartBoxDivData");
+
+                else {
+                    $(this).css("border-color", "");
+                    qtyValue += parseFloat(productQtyText);
+                    var unitPriceText = $(this).parent().next("td.unitPrice").text();
+                    var unitPriceValue = parseFloat(unitPriceText);
+
+                    var productPrice = qtyValue * unitPriceValue;
+                    var productPriceRoundedValue = productPrice.toFixed(2);
+
+                    //$(productDiv).find("span.cartproductprice").text("Rs. " + productPriceRoundedValue).append(' <a class="cartproductRemove" href="javascript:void();">Remove</a>');
+                    $(this).parent().siblings("td.tdTotalPrice").text(productPriceRoundedValue);
+
+                    CheckOut.Structure.calculateCustomerOrderTotal();
+
+                }
+
+
+            });
+
+
+
+            //$(".deliveryDate").datetimepicker({
+
+            //    minDate: 0,
+            //    format: 'Y-m-d H:i:s'
+            //});
+
+            //only lower uppercase alphabets, space is also allowed
+            $("#txtFullName").on("keyup blur", function () {
+                $(this).val(function (i, val) {
+                    return val.replace(/[^a-z\s]/gi, '');
+                });
+            });
+
+
+            $(document).on("click", ".check_out", function (e) {
+                e.preventDefault();
+                //alert("check out button is clicked");
+                CheckOut.Structure.saveCustomerOrder();
+            });
+
+
+            //for cart items       quantity  text box
+            //This will let you enter positive numbers only and the decimal numbers with 2 digits precision
+            $(document).on("keypress", 'table.timetable_sub input.tdQuantity', function (event) {
+                //alert("key is pressed");
+                if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 49 || event.which > 57)) {
+                    if (event.keyCode !== 8 && event.keyCode !== 46) { //exception
+                        event.preventDefault();
+                    }
+                }
+                if (($(this).val().indexOf('.') != -1) && ($(this).val().substring($(this).val().indexOf('.'), $(this).val().indexOf('.').length).length > 2)) {
+                    if (event.keyCode !== 8 && event.keyCode !== 46) { //exception
+                        event.preventDefault();
+                    }
+                }
+            });
+
+
+        });
+    </script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>

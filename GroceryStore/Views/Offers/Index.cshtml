@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutPageForCustomers.cshtml";
+}
+
+
+@*<div>
+    <p>Testing paragraph: Offer info will be added here</p>
+</div>*@
+
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+
+@*<script src='@Url.Content("~/js/jquery-3.2.1.min.js")'></script>*@
+<script src='@Url.Content("~/Scripts/Offers.js")'></script>
+
+
+@Styles.Render("~/Content/css")
+
+@*<link href='@Url.Content("~/css/jquery-1.10.4ui.css")' rel="stylesheet" />
+
+
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.js")'></script>
+    <script src='@Url.Content("~/js/jquery-1.10.4ui.js")'></script>*@
+
+
+
+
+<div class="top-brands">
+    <div class="container">
+        @*<h3>Hot Offers</h3>*@
+        <h3 class="productsPage"></h3>
+        <div id="divProducts" class="agile_top_brands_grids">
+            <div class="col-md-3 top_brand_left productItemTemplate" style="display:none">
+
+                <div class="hover14 column">
+                    <div class="agile_top_brand_left_grid">
+                        @*<div class="tag"><img src='@Url.Content("~/images/tag.png")' alt=" " class="img-responsive" /></div>*@
+                        <div class="agile_top_brand_left_grid1">
+
+                            <figure>
+                                <div class="snipcart-item block">
+                                    <div class="snipcart-thumb">
+                                        <a><img class="productImage" title=" " alt=" " src='@Url.Content("~/images/1.png")' style="width:324px; height:480px;" /></a>
+                                        <p class="productName">Product Name</p>
+                                        @*<label>PKR:</label> <span class="productPrice" style="text-decoration:line-through"></span>*@
+                                        <label>PKR:</label> <span class="productPrice"></span>
+
+                                        @*<p>fortune sunflower oil</p>*@
+                                        @*<h4>$7.99 <span>$10.00</span></h4>*@
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details">
+                                        @*<form action="checkout.html" method="post">*@
+                                        <form>
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="business" value=" " />
+                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                <input type="hidden" name="amount" value="7.99" />
+                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                <input type="hidden" name="currency_code" value="USD" />
+                                                <input type="hidden" name="return" value=" " />
+                                                <input type="hidden" name="cancel_return" value=" " />
+                                                @*<input type="submit" name="submit" value="Add to cart" class="button" />*@
+                                                <input type="button" name="submit" value="Add to cart" class="button" />
+                                            </fieldset>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script type="text/javascript">
+
+
+
+</script>
